@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Forms Assignment</title>
+        </head>
+        <body>
+        <form method="POST" action="https://request-inspector.glitch.me/">
+            <div>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="email">
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password" placeholder="password">
+            </div>
+            <div>
+                <label for="bio">Bio</label>
+                <textarea name="bio" id="bio" placeholder="Tell a little about yourself"></textarea>
+            </div>
+            <fieldset>
+                <legend>How did you hear about us?</legend>
+                    <input id="billboard" type="radio" name="how1" value="billboard">
+                    <label for="billboard">Billboard</label><br>
+                    <input id="radio advertisement" type="radio" name="how2" value="radio advertisement">
+                    <label for="radio advertisement">Radio Advertisement</label><br>
+                    <input id="internet advertisement" type="radio" name="how3" value="internet advertisement">
+                    <label for="internet advertisement">Internet Advertisement</label><br>
+                    <input id="other" type="radio" name="how4" value="other">
+                    <label for="billboard">Other</label><br>
+            </fieldset>
+            <fieldset>
+                <label for="ios">What operating system do you use?</label>
+                <select id="ios">
+                    <option value="firefox">Firefox</option>
+                    <option value="e">E</option>
+                    <option value="google chrome">Google Chrome</option>
+                    <option value="other">Other</option>
+                </select>
+            </fieldset>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        </body>
+    </html>
