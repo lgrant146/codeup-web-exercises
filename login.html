@@ -5,14 +5,26 @@
             <title>Login html</title>
         </head>
         <body>
-            <div>
-                <label for="username">Username</label>
-                <input name="username" id="username" type="text" required autofocus>
-            </div>
-            <div>
-            <label for="email">Email</label>
-            <input name="email" id="email" type="text" required autofocus>
-            </div>
-
+            <form action="https://request-inspector.glitch.me" method="POST">
+                <div>
+                    <label for="username">Username</label>
+                    <input name="username" id="username" type="text" required autofocus="autofocus">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input name="email" id="email" type="text" required>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input name="password" id="password" type="password" required>
+                </div>
+                <div>
+                    <input name="checkbox" id="checkbox" type="checkbox" checked>
+                    <label for="checkbox">Keep me logged in for 2 weeks</label>
+                </div>
+                <div>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
         </body>
         </html>
