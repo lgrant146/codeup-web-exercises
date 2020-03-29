@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Property search</title>
+        </head>
+        <body>
+            <form action="https://request-inspector.glitch.me" method="GET">
+                <div>
+                    <label for="property_type">Property Type:</label>
+                        <select name="property_type" id="property_type">
+                            <option value="vacant">Vacant</option>
+                            <option value="residential">Residential</option>
+                            <option value="commercial">commercial</option>
+                        </select>
+                </div>
+                <div>
+                    <label for="minarces">Min-Max Arces:</label>
+                        <select name="minarces" id="minarces">
+                            <option value="min">Min</option>
+                            <option value="0">0</option>
+                            <option value=".5">.5</option>
+                            <option value="1">1</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="200" >200</option>
+                            <option value="500">500</option>
+                            <option value="1000">1000</option>
+                        </select>
+                    <label for="maxarces"></label>
+                        <select name="maxarces" id="maxarces">
+                            <option value="max">Max</option>
+                            <option value=".5">.5</option>
+                            <option value="1">1</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="200" >200</option>
+                            <option value="500">500</option>
+                            <option value="1000">1000</option>
+                        </select>
+                </div>
+                <div>
+                    <label for="zipcode">Zipcode:</label>
+                    <input id="zipcode" type="number" name="zipcode">
+                </div>
+                <div>
+                    <label for="bedrooms">Number of bedrooms:</label>
+                    <input id="bedrooms" name="bedrooms" type="number">
+                </div>
+                <div>
+                    <label for="bathrooms">Number of bathrooms:</label>
+                    <input id="bathrooms" name="bathrooms" type="number">
+                </div>
+                <div>
+                    <button type="submit">Search Now</button>
+                </div>
+            </form>
+        </body>
+    </html>
