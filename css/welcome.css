@@ -2,11 +2,38 @@ header h1{
     text-align: center;
 }
 h1, h2, h3{
-    color: darkgreen;text-decoration: underline;
+    color: darkorange;text-decoration: underline;
 }
-body { background-image:url("/img/forest.jpg");
-background-repeat: no-repeat;
-background-size: cover;
+body {
+    background: url("../img/scenic-view-of-mountain-1666021.jpg") repeat #cfcfe6;
 }
 
+ol { list-style: upper-latin; }
+ul { list-style: circle; }
+body {
+    font-family: 'Comic Neue', cursive;
+}
+table, th, td {
+    border: 1px solid black;
+    color: aliceblue;
+    font-size: 2em;
+}
+a:link {
+    color: red;
+}
 
+a:visited {
+    color: blue;
+}
+
+a:hover {
+    color: darkgoldenrod;
+}
+
+a:active {
+    color: firebrick;
+}
+
+body{
+color: papayawhip;
+}
