@@ -1,0 +1,12 @@
+header h1{
+    text-align: center;
+}
+h1, h2, h3{
+    color: darkgreen;text-decoration: underline;
+}
+body { background-image:url("/img/forest.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+
