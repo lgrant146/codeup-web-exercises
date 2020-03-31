@@ -1,0 +1,47 @@
+:root {
+    --main-border-color: #d0d5e0;
+    --main-border-raduis: 5px;
+    --main-margin: .5em;
+    --main-padding: .5em;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+.message-info{
+    background-color: #cddeff;
+    color: #7d80c5;
+    border: var(--main-border-color);
+    border-radius: var(--main-border-raduis);
+    margin: var(--main-margin);
+    padding: var(--main-padding);
+}
+.message-success {
+    background-color: #cff3da;
+    color: #126f39;
+    border: var(--main-border-color);
+    border-radius: var(--main-border-raduis);
+    margin: var(--main-margin);
+    padding: var(--main-padding);
+}
+.message-warning{
+    background: #fcfbc9;
+    color: #c1b668;
+    border: var(--main-border-color);
+    border-radius: var(--main-border-raduis);
+    margin: var(--main-margin);
+    padding: var(--main-padding);
+}
+.message-error{
+    background: #fad3d7;
+    color: #9f455a;
+    border: var(--main-border-color);
+    border-radius: var(--main-border-raduis);
+    margin: var(--main-margin);
+    padding: var(--main-padding);
+}
