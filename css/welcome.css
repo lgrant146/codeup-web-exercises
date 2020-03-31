@@ -17,6 +17,7 @@ table, th, td {
     border: 1px solid black;
     color: aliceblue;
     font-size: 2em;
+    padding: .5em;
 }
 a:link {
     color: red;
@@ -36,4 +37,8 @@ a:active {
 
 body{
 color: papayawhip;
+}
+
+body{
+    margin: 0;
 }
