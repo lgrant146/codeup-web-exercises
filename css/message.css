@@ -13,35 +13,27 @@ body, html {
     font-family: Arial, Ubuntu, sans-serif;
 }
 
-.message-info{
-    background-color: #cddeff;
-    color: #7d80c5;
+.message{
     border: var(--main-border-color);
     border-radius: var(--main-border-raduis);
     margin: var(--main-margin);
     padding: var(--main-padding);
+}
+.message-info{
+    background-color: #cddeff;
+    color: #7d80c5;
+
 }
 .message-success {
     background-color: #cff3da;
     color: #126f39;
-    border: var(--main-border-color);
-    border-radius: var(--main-border-raduis);
-    margin: var(--main-margin);
-    padding: var(--main-padding);
 }
 .message-warning{
     background: #fcfbc9;
     color: #c1b668;
-    border: var(--main-border-color);
-    border-radius: var(--main-border-raduis);
-    margin: var(--main-margin);
-    padding: var(--main-padding);
 }
 .message-error{
     background: #fad3d7;
     color: #9f455a;
-    border: var(--main-border-color);
-    border-radius: var(--main-border-raduis);
-    margin: var(--main-margin);
-    padding: var(--main-padding);
+
 }
