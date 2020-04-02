@@ -58,6 +58,7 @@ a {
 }
 .profile-form{
     line-height: 80px;
+    float: right;
 }
 .btn {
     border: 1px solid var(--main-link-color);
