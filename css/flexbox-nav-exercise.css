@@ -2,34 +2,40 @@
 body {
     display: flex;
     box-sizing: border-box;
+    justify-content: space-between;
 
 
 }
 a:hover{
     color: blue;
 }
-a{
+a {
     display: inline-block;
     padding: 1em;
     text-decoration: none;
 }
 .nav{
     display: flex;
-    margin: 0;
+    padding: 0;
     background-color: grey;
-    overflow: auto;
+    align-items: center;
     font-family: "Work Sans";
-    flex-basis: 100%;
+    width: 100%;
 }
 .logo{
     padding: .2em 0;
     font-size: 3em;
-    align-self: center;
+    margin: auto;
 }
 .list{
     display: flex;
     list-style: none;
     font-family: "Montserat";
     justify-content: flex-start;
+}
+
+ul {
+    align-items:center;
+
 }
 
