@@ -1,5 +1,9 @@
+
 body {
     display: flex;
+    box-sizing: border-box;
+
+
 }
 a:hover{
     color: blue;
@@ -7,18 +11,25 @@ a:hover{
 a{
     display: inline-block;
     padding: 1em;
+    text-decoration: none;
 }
 .nav{
     display: flex;
-    margin: auto;
-
+    margin: 0;
+    background-color: grey;
+    overflow: auto;
+    font-family: "Work Sans";
+    flex-basis: 100%;
 }
-.logo-div{
-    font-family: ;
+.logo{
+    padding: .2em 0;
+    font-size: 3em;
+    align-self: center;
 }
 .list{
     display: flex;
-    margin:auto;
-
-
+    list-style: none;
+    font-family: "Montserat";
+    justify-content: flex-start;
 }
+
