@@ -37,7 +37,7 @@ header {
 
 nav {
     /* TODO: define the grid area of nav such that it takes up the second column of the second row  */
-    grid-area: 2 / 2 / 2 / 2;
+    grid-area: 2 / 2 / 3 / 3;
 }
 
 main {
