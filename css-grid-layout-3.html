@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>grid layout 3</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas:
+                    "one one one one"
+                    "two three four four"
+                    "two five five six"
+                    "two seven eight nine"
+                    "two ten ten ten";
+            grid-gap: .5em;
+            height: 100vh;
+        }
+        .wrapper * {
+            background-color: #ffd700;
+            color: white;
+            font-size: 4em;
+            padding-left: .2em;
+        }
+        .one {
+            grid-area: one;
+            display: flex;
+            flex-direction: row;
+        }
+        .two {
+            grid-area: two;
+            display: flex;
+            flex-direction: column;
+        }
+        .three {
+            grid-area: three;
+            display: flex;
+            flex-direction: row;
+        }
+        .four {
+            grid-area: four;
+            display: flex;
+            flex-direction: row;
+        }
+        .five {
+            grid-area: five;
+            display: flex;
+            flex-direction: row;
+        }
+        .six {
+            grid-area: six;
+            display: flex;
+            flex-direction: row;
+        }
+        .seven {
+            grid-area: seven;
+            display: flex;
+            flex-direction: row;
+        }
+        .eight {
+            grid-area: eight;
+            display: flex;
+            flex-direction: row;
+        }
+        .nine {
+            grid-area: nine;
+            display: flex;
+            flex-direction: row;
+        }
+        .ten{
+            grid-area: ten;
+            dispaly: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <section class="one">1</section>
+    <section class="two">2</section>
+    <section class="three">3</section>
+    <section class="four">4</section>
+    <section class="five">5</section>
+    <section class="six">6</section>
+    <section class="seven">7</section>
+    <section class="eight">8</section>
+    <section class="nine">9</section>
+    <section class="ten">10</section>
+</div>
+</body>
+</html>
