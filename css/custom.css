@@ -1,0 +1,25 @@
+.jumbotron {
+    display: none;
+
+}
+
+@media screen and (min-width:992px) {
+    .jumbotron {
+        display: block;
+        background-image: url("../img/pizza.png");
+        background-color: grey;
+
+    }
+
+    .jumbotron h1 {
+        text-align: center;
+    }
+
+    .container {
+        background-color: rgba(114, 140, 127, 0.2);
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
+
+}
