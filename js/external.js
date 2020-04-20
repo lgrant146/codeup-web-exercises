@@ -34,16 +34,38 @@ alert("The total cost of renting the movies for the kids will be " + totalPriceF
 
 // Pay per hour
 
-var googlePayPerHourDollars = 400
+var googlePayPerHourDollars = parseInt(prompt("What is your pay per hour for Google?"));
 
-var amazonPayPerHourDollars = 380
+var amazonPayPerHourDollars = parseInt(prompt("What is your pay per hour for Amazon?"));
 
-var facebookPayPerHourDollars = 350
+var facebookPayPerHourDollars = parseInt(prompt("What is your pay per hour for Facebook?"));
 
-var facebookHours = 10
+var facebookHours =  parseInt(prompt("How many hours did you work for Facebook?"));
 
-var googleHours = 6
+var googleHours = parseInt(prompt("How many hours did you work for Google?"));
 
-var amazonHours = 4
+var amazonHours = parseInt(prompt("How many hours did you work for Amazon?"));
 
-var totalWeekPayDollars = (googlePayPerHourDollars * googleHours) + (amazonPayPerHourDollars + amazonHours) + (facebookPayPerHourDollars * facebookHours)
+var totalWeekPayDollars = parseInt((googlePayPerHourDollars * googleHours) + (amazonPayPerHourDollars + amazonHours) + (facebookPayPerHourDollars * facebookHours));
+
+alert("You made " + totalWeekPayDollars + " this week!");
+
+// class schedule
+var classIsNotFull = confirm("Confirm that the class is not full");
+var classScheduleClear = confirm("Confirm that the schedule is clear");
+
+var studentEnrolled = (classIsNotFull && classScheduleClear);
+
+alert("Student  enrollment status: " + studentEnrolled);
+
+
+// product offer
+
+var discountBreakPoint = 2;
+var numberOfItems = Number(prompt("How many items were bought?"));
+var offerIsNotExpired = confirm("Confirm offer has not expired.");
+var isPremiumMember = confirm("Customer is a premium member");
+
+var productDiscountIsApplied = offerIsNotExpired && (isPremiumMember || numberOfItems >= discountBreakPoint);
+
+alert("Product discount applied: " + productDiscountIsApplied);
