@@ -79,7 +79,7 @@ function analyzeColor2(color) {
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-// var color = prompt("What is your favorite color?");
+// var color = prompt("What is your favorite color?").toLowerCase();
 // alert(analyzeColor2(color));
 
 /* ########################################################################## */
@@ -157,19 +157,19 @@ function numberMagic() {
        var num = Number(prompt("What is the number?"));
         if (typeof num == "number" && num % 2 === 0 && num > 0 ) {
             alert("Your number is even");
-            alert("your number is " + (num + 100));
+            alert("your number + 100 is " + (num + 100));
             alert("your number is positive");
         } else if (typeof num == "number" && num % 2 !== 0 && num > 0 ) {
             alert("Your number is odd");
-            alert("your number is " + (num + 100));
+            alert("your number + 100 is " + (num + 100));
             alert("your number is positive");
         } else if(typeof num == "number" && num % 2 === 0 && num < 0 ) {
             alert("Your number is even");
-            alert("your number is " + (num + 100));
+            alert("your number is + 100 is " + (num + 100));
             alert("your number is negative");
         } else if(typeof num == "number" && num % 2 !== 0 && num < 0 ) {
             alert("Your number is odd");
-            alert("your number is " + (num + 100));
+            alert("your number + 100 is " + (num + 100));
             alert("your number is negative");
         } else {
             alert("That isn't a number!!!");
