@@ -16,9 +16,9 @@ function randomNum() {
 // console.log(randomNum(20, 200));
 function evenOrOdd(num){
     if (num % 2 == 0){
-        return num + " is even"
+        console.log (num + " is even")
     } else {
-        return num + " is odd"
+        console.log (num + " is odd")
     }
 }
 var randomEvenOrOdd = evenOrOdd(randomNum());
