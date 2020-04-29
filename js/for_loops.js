@@ -39,14 +39,22 @@ function showMultiplicationTable(num){
 //     }
 //     console.log(output);
 // }
-for (var i = 1; i < 10; i += 1){
-    console.log(i.toString().repeat(i));
-}
-
-// 5
-// for (var i = 100; i >= 1; i--){
-//     if (i % 5 == 0) {
-//         console.log(i)
-//     }
+// for (var i = 1; i < 10; i += 1){
+//     console.log(i.toString().repeat(i));
 // }
+
+function displayNumpyramid() {
+    var output ="";
+    for (var i = 1; i < 10; i += 1) {
+        output += i.toString().repeat(i) + "\n";
+    }
+    return output;
+}
+// console.log(displayNumpyramid());
+// 5
+for (var i = 100; i >= 1; i--){
+    if (i % 5 == 0) {
+        console.log(i)
+    }
+}
 

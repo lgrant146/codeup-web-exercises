@@ -1,7 +1,12 @@
 "use strict";
-//     var x = 2;
-// while(x <= 65536){
-//     x * 2;
-//     console.log(x);
-//
-// }
+function displayDoubleTwo(){
+    var output = "";
+    var i = 2;
+    while (i <= 65536) {
+        output +=i + "\n";
+        i *=2;
+    }
+    return output;
+}
+
+// console.log(displayDoubleTwo());
