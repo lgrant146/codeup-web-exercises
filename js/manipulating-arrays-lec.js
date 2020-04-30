@@ -39,7 +39,7 @@ var activeCohorts = ['deimos','europa','fortuna','ganymede','ada','bayes'];
 
 // TO DO TOGETHER: Use the .pop method to remove the last cohort in the list.
 //displays element at the end of array that is removed
-console.log(activeCohorts.pop());;
+console.log(activeCohorts.pop());
 console.log(activeCohorts);
 // TO DO TOGETHER: Use the .shift method to remove the first cohort in the list.
 console.log(activeCohorts.shift());;
