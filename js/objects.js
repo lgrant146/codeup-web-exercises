@@ -70,6 +70,41 @@ console.log(person.lastName);
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+var books = [
+        {
+        title: 'Godshot',
+        author: {
+            firstName: "Chelsea",
+            lastName: "Bieker",
+        }
+        }, {
+            title: 'Exciting Times',
+            author: {
+                firstName: "Naoise",
+                lastName: "Dolan",
+            }
+        }, {
+            title: 'Memorial Drive',
+            author: {
+                firstName: "Natasha",
+                lastName: "Tretheway",
+            }
+        }, {
+            title: 'Last Couple Standing',
+            author: {
+                firstName: "Matthew",
+                lastName: "Norman",
+            }
+        }, {
+            title: 'Jetsetters',
+            author: {
+                firstName: "Amanda",
+                lastName: "Eyre",
+            }
+        }
+];
+
+
 
     /**
      * TODO:
@@ -95,6 +130,9 @@ console.log(person.lastName);
      *      ---
      *      ...
      */
+    books.forEach(function(book, index){
+       console.log(book.title + " #" + index + "\n" + 'Title: ' + book.title + '\n' + 'Author: ' + book.author.firstName + ' ' + book.author.lastName);
+    });
 
     /**
      * Bonus:
