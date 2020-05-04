@@ -131,7 +131,7 @@ var books = [
      *      ...
      */
     books.forEach(function(book, index){
-       console.log(book.title + " #" + index + "\n" + 'Title: ' + book.title + '\n' + 'Author: ' + book.author.firstName + ' ' + book.author.lastName);
+       console.log(book.title + " #" + (index + 1) + "\n" + 'Title: ' + book.title + '\n' + 'Author: ' + book.author.firstName + ' ' + book.author.lastName);
     });
 
     /**
@@ -145,4 +145,12 @@ var books = [
      *   `showBookInfo` function.
      */
 
+        function createBook(title, fName, lName){
+            return {title: title,
+            author:{
+                firstName:fName,
+                lastName:lName
+            }
+            }
+    }
 })();
