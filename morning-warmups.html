@@ -112,7 +112,28 @@
                 console.log(largerOfTwoNums(200, 100))
 
 
+
+            // Create a function that takes in a array input and returns true if one of the elements is a number that matches the number of total elements in the array.
+          var test1 = [1];
+            // Example output: true
+        var test2 = ['bob', 3, false];
+            // Example output: true
+            var test3 = [{'a': 'hello'}, 10, true]
+            // Example output: false
+            // Example input: [5, {'a': 'hello'}, 30, true, null]
+            // Example output: true
+
+            function numberMatch(array){
+                for (var i = 0; i < array.length; i += 1){
+                     if (array[i] === array.length) {
+                         return true;
+                     }
+
+                }
+                return false;
+            }
+            console.log(numberMatch(test3));
         </script>
-        <script src="js/warmup.js"></script>
+<!--        <script src="js/warmup.js"></script>-->
         </body>
 </html>
