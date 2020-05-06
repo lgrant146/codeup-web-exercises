@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mapbox api</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<style>
+    body { margin: 0; padding: 0}
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+<div id='map'></div>
+<script src="js/keys.js"></script>
+<script>
+    mapboxgl.accessToken = mapboxKey;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [-98.4936, 29.4241],
+        zoom: 9,
+    });
+    function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+                // to get all the data from the request, comment out the following three lines...
+            }).then(function(data) {
+                return data.features[0].center;
+            });
+    }
+    geocode("3869-2 Kanaya, Futtsu, Chiba 299-1861, Japan", mapboxKey).then(function (result) {
+        console.log(result);
+        map.setCenter(result);
+        map.setZoom(20);
+    });
+    </script>
+</body>
+</html>
