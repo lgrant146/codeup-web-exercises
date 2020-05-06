@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox mini 2</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<!--Mini - Exercise 2 (after markers and popups)-->
+<!--Create an HTML file called mapbox-2.html-->
+<!--In this file, create a Mapbox map that shows Washington D.C. and with a marker on the Lincoln Memorial.-->
+<!--Add a popup to the Lincoln Memorial marker that contains the text "Lincoln Memorial"-->
+<!--Bonus: when the marker is dragged and released, display the coordinates in an h1-->
+<style>
+    body { margin: 0; padding: 0}
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+<div id='map'></div>
+<script src="js/keys.js"></script>
+<script>
+
+    mapboxgl.accessToken = mapboxKey;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [-77.0369, 38.9072],
+        zoom: 9,
+    });
+    var marker = new mapboxgl.Marker()
+            .setLngLaat({lng: -77.0502,lat: 38.8893})
+            .addTo(map);
+    var popup = new mapboxgl.Popup()
+        .setHTML
+    </script>
+</body>
+</html>

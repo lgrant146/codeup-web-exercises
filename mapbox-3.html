@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mapbox-3</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+<!--Mini - Exercise 3 (after geocoding)-->
+<!--Create an HTML file called mapbox-3.html centered on San Antonio that is re-centered over Whitefish, Montana using the coordinates from geocoding the physical address.-->
+<!--Use reverse geocoding with the reverseGeocode function to determine what is at 21.2620 latitude and -157.8060 longitude. (edited)-->
+<style>
+    body { margin: 0; padding: 0}
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+<div id='map'></div>
+<script src="js/keys.js"></script>
+<script>
+    mapboxgl.accessToken = mapboxKey;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [-98.4936, 29.4241],
+        zoom: 9,
+    });
+    function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+                // to get all the data from the request, comment out the following three lines...
+            }).then(function(data) {
+                return data.features[0].center;
+            });
+    }
+    setTimeout(function () {
+        geocode("Whitefish, MT 59937", mapboxKey).then(function (result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(9);
+        });
+    }, 8000);
+    function reverseGeocode(coordinates, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+            })
+            // to get all the data from the request, comment out the following three lines...
+            .then(function(data) {
+                return data.features[0].place_name;
+            });
+    }
+    // reverse geocode method from mapbox-geocoder-utils.js
+    reverseGeocode({lng: -157.8060, lat: 21.2620}, mapboxKey).then(function(results) {
+        console.log(results);
+    });
+</script>
+</body>
+</html>
