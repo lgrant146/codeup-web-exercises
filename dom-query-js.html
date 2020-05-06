@@ -24,43 +24,70 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
-
+<button id="btn1">click</button>
+<button id="btn2">button</button>
+<button id="btn3">push</button>
+<button id="btn4">Do it</button>
 <script>
     (function() {
         "use strict";
-        // TODO: Uncomment next line and get the main header element by id
-        var mainHeader = document.getElementById("main-header");
+        function JSCool() {
+            // TODO: Uncomment next line and get the main header element by id
+            var mainHeader = document.getElementById("main-header");
 
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-                mainHeader.innerText = "JavaScript is Cool";
-        // TODO: Uncomment the next line and get the sub header element by id
-        var subHeader = document.getElementById("sub-header") ;
-
-        // TODO: Set the text color of subHeader to blue
-                    subHeader.style.color = "blue";
-        // TODO: Uncomment the next line and get all list items
-        var listItems = document.getElementsByTagName("li");
-
-        // TODO: Set text color on every other list item to grey
-        // TODO: Set text color of li with dbid = 1 to blue
-
-        for (var i = 0; i < listItems.length; i += 1){
-            if ( i % 2 === 0) {
-                listItems[i].style.color = "grey"
-            }
-            var dbid = listItems[i].getAttribute("data-dbid");
-            if(dbid == '1') {
-                listItems[i].style.color = "blue";
-            }
+            // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+            mainHeader.innerText = "JavaScript is Cool";
         }
-               // listItems[1].style.color = "grey";
+        function subHeadBlue() {
+            // TODO: Uncomment the next line and get the sub header element by id
+            var subHeader = document.getElementById("sub-header");
+
+            // TODO: Set the text color of subHeader to blue
+            subHeader.style.color = "blue";
+        }
+        function styleLi () {
+            // TODO: Uncomment the next line and get all list items
+            var listItems = document.getElementsByTagName("li");
+
+            // TODO: Set text color on every other list item to grey
+            // TODO: Set text color of li with dbid = 1 to blue
+
+            for (var i = 0; i < listItems.length; i += 1) {
+                if (i % 2 === 0) {
+                    listItems[i].style.color = "grey"
+                }
+                var dbid = listItems[i].getAttribute("data-dbid");
+                if (dbid == '1') {
+                    listItems[i].style.color = "blue";
+                }
+            }
+        }       // listItems[1].style.color = "grey";
                // listItems[3].style.color = "grey";
                //  listItems[0].style.color = "blue";
-        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        var subParagraphs = document.getElementsByClassName("sub-paragraph") ;
-        console.log(subParagraphs);
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        function missionAccomplished() {
+
+
+            // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+            var subParagraphs = document.getElementsByClassName("sub-paragraph");
+            console.log(subParagraphs);
+            // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
             subParagraphs[0].innerHTML = "Mission Accomplished!"
+        }
+
+        var listner2 = function (event) {
+            alert ('You clicked the button!');
+        }
+        var listner3 = function (event) {
+            alert ('You clicked the button!');
+        }
+        var listner4 = function (event) {
+            alert ('You clicked the button!');
+        }
+        document.getElementById('btn1').addEventListener('click', JSCool);
+        document.getElementById('btn2').addEventListener('click', subHeadBlue);
+        document.getElementById('btn3').addEventListener('click', styleLi);
+        document.getElementById('btn4').addEventListener('click', missionAccomplished);
+
     })();
 </script>
 </body>

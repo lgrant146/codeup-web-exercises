@@ -133,6 +133,18 @@
                 return false;
             }
             console.log(numberMatch(test3));
+            // Write a javascript function that takes in a number and returns the number raised to the power of four. If any argument is passed into the function that is not a number, return false.
+            function powerOfFour(input) {
+                if (!isNaN(input)){
+                    return Math.pow(input, 4)
+                    // num ** 4
+                } else {
+                    return false;
+                }
+            }
+
+            console.log(powerOfFour(4));
+            console.log(powerOfFour('banana'))
         </script>
 <!--        <script src="js/warmup.js"></script>-->
         </body>
