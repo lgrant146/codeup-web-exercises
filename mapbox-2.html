@@ -17,21 +17,39 @@
     #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
 <div id='map'></div>
+
+<h1>Coordinates: <span id="coords"></span></h1>
+
 <script src="js/keys.js"></script>
 <script>
-
     mapboxgl.accessToken = mapboxKey;
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
-        center: [-77.0369, 38.9072],
-        zoom: 9,
+        center: {lng: -77.0502, lat: 38.8893},
+        zoom: 10
     });
+
+    var coords = document.getElementById("coords");
+
     var marker = new mapboxgl.Marker()
-            .setLngLaat({lng: -77.0502,lat: 38.8893})
-            .addTo(map);
+        .setLngLat({lng: -77.0502, lat: 38.8893})
+        .addTo(map);
+
     var popup = new mapboxgl.Popup()
-        .setHTML
-    </script>
+        .setHTML("Lincoln Memorial");
+
+    marker.setPopup(popup);
+    marker.setDraggable(true);
+
+    marker.on("dragend", function() {
+        // console.log(marker.getLngLat());
+        coords.innerHTML = marker.getLngLat();
+    });
+
+
+
+
+</script>
 </body>
 </html>

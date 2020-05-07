@@ -12,6 +12,7 @@
     #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
 <div id='map'></div>
+<h1>Coordinates: <span id="coords"></span></h1>
 <script src="js/keys.js"></script>
 <script>
     mapboxgl.accessToken = mapboxKey;
@@ -46,6 +47,35 @@
     setTimeout(function Zoom5() {
         map.setZoom(5);
     }, 9000);
+    setTimeout(function Zoom5() {
+        map.setZoom(20);
+        map.setCenter( 35.166547, 139.824292);
+    }, 12000);
+    var coords = document.getElementById("coords");
+
+    var marker = new mapboxgl.Marker()
+        .setLngLat({lng:139.824292 , lat:35.166547})
+        .addTo(map);
+
+    var popup = new mapboxgl.Popup()
+        .setHTML("Pizza Gonzo");
+
+    marker.setPopup(popup);
+    marker.setDraggable(true);
+
+    marker.on("dragend", function() {
+        // console.log(marker.getLngLat());
+        coords.innerHTML = marker.getLngLat();
+    });
+    // var coords = document.getElementById("coords");
+    //
+    // var marker = new mapboxgl.Marker()
+    //     .setLngLat({lng: -77.0502, lat: 38.8893})
+    //     .addTo(map);
+    // var popup = new mapboxgl.Popup()
+    // var marker = new mapboxgl.Marker()
+    // .setLngLat({lng: 101.723220 , lat: 3.170150})
+    // .addTo(map);
     </script>
 </body>
 </html>
