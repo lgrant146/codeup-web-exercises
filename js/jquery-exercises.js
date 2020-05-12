@@ -7,7 +7,7 @@
         alert('DOM has finished loading!')
     });
 
-    var mainHeader = $('#heading1').html();
+    var alertParagraph = $('#container1').html();
 
-    alert(mainHeader);
+    alert(alertParagraph);
 })(jQuery);
