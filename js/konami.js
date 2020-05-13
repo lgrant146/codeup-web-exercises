@@ -48,6 +48,16 @@
 //
 // onKonamiCode(function () {alert('konami code activated')});
 // a key map of allowed keys
+//     $(document).addEventListener('keydown', function(e) {
+//         if (e.keyCode == 72) {
+//             $('#h').play();
+//         }
+//     });
+document.addEventListener('keydown', function(e) {
+    if (e.keyCode == 72) {
+        document.getElementById('h').play();
+    }
+});
 var allowedKeys = {
     37: 'left',
     38: 'up',
@@ -96,10 +106,11 @@ function activateCheats() {
     }
 );
 
-    var audio = new Audio('sounds/zelda-navi-listen.mp3');
+    var audio = new Audio('sounds/zelda-secret.mp3');
     audio.play();
 
-    alert("HEY, LISTEN!");
+    alert("Secret Unlocked!");
+
 }
 
 
