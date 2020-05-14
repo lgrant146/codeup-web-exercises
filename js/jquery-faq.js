@@ -17,3 +17,9 @@ $('#highlight').click(function(){
         $(this).children().last().css('background-color', 'yellow')
     });
 });
+
+$('h3').click(function(){
+    $(this).each(function(){
+        $(this).next().css('font-weight', 'bold')
+    });
+});
