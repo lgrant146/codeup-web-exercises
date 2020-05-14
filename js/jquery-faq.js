@@ -11,3 +11,9 @@ $(document).ready(function(){
 $('dt').click(function(){
     $(this).toggleClass('highlight')
 });
+
+$('#highlight').click(function(){
+    $('ul').each(function(){
+        $(this).children().last().css('background-color', 'yellow')
+    });
+});
