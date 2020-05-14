@@ -23,3 +23,9 @@ $('h3').click(function(){
         $(this).next().css('font-weight', 'bold')
     });
 });
+
+$('li').click(function(){
+    $(this).each(function(){
+        $(this).parent().children().first().css('color', 'blue')
+    });
+});
