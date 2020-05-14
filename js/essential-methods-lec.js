@@ -65,16 +65,28 @@ $(document).ready(function() {
      *********************************************/
 
     // TODO TOGETHER: console log each list element's text
-
+        $('li').each(function(){
+            console.log($(this).html())
+        });
     // TODO TOGETHER: select all list elements and console log the first match
+    console.log($('li').first().html());
+
 
     // TODO TOGETHER: select all list elements and console log the last match
-
+    console.log($('li').last().html());
     // TODO TOGETHER: When I click on a list element, highlight its parent
-
+    $('li').click(function(){
+        $(this).parent().css('background-color', 'yellow')
+    });
     // TODO TOGETHER: When I click into a <ul>, console log last child in that group
-
+    $('ul').click(function(){
+        console.log($(this).children().last().html());
+    });
     // TODO TOGETHER: When I click on any list element, console log the next element
+
+    $('li').click(function(){
+        console.log($(this).next().html());
+    });
 
 
 
