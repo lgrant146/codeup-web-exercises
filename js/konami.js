@@ -6,32 +6,8 @@
 //     }
 //
 // })
-document.addEventListener('keydown', function(e) {
-    if (e.keyCode == 38) {
-        document.getElementById('up').play();
-    }
-    });
-document.addEventListener('keydown', function(e) {
-    if (e.keyCode == 37) {
-        document.getElementById('left').play();
-    }
-});
-document.addEventListener('keydown', function(e) {
-    if (e.keyCode == 39) {
-        document.getElementById('right').play();
-    }
-});
-document.addEventListener('keydown', function(e) {
-    if (e.keyCode == 40) {
-        document.getElementById('down').play();
-    }
-});
-document.addEventListener('keydown', function(e) {
-    if (e.keyCode == 65) {
-        document.getElementById('a').play();
-    }
-});
-    var allowedKeys = {
+
+var allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
@@ -41,36 +17,42 @@ document.addEventListener('keydown', function(e) {
         13: 'start'
     };
 
+// Epona's song
+    var eponaSong = ['up', 'left', 'right', 'up', 'left', 'right'];
+
 // the 'official' Konami Code sequence
     var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'start'];
 
 // a variable to remember the 'position' the user has reached so far.
-    var konamiCodePosition = 0;
+    var CodePosition = 0;
 
 // add keydown event listener
     $(document).keyup(function (e) {
         // get the value of the key code from the key map
         var key = allowedKeys[e.keyCode];
         // get the value of the required key from the konami code
-        var requiredKey = konamiCode[konamiCodePosition];
+        var requiredKey = konamiCode[CodePosition];
 
         // compare the key with the required key
         if (key == requiredKey) {
 
             // move to the next key in the konami code sequence
-            konamiCodePosition++;
+            CodePosition++;
 
             // if the last key is reached, activate cheats
-            if (konamiCodePosition == konamiCode.length) {
-                activateCheats();
-                konamiCodePosition = 0;
+            if (CodePosition == konamiCode.length) {
+                activateSecret();
+                CodePosition = 0;
             }
         } else {
-            konamiCodePosition = 0;
+            CodePosition = 0;
         }
     });
-
-    function activateCheats() {
+    function epona(){
+        var audio = new Audio("sounds/Epona's_Song.mp3");
+        audio.play();
+    }
+    function activateSecret() {
         $('body').css({
                 'background-image': "url(img/ocarina.png)",
                 'background-position': 'center center',
@@ -83,12 +65,64 @@ document.addEventListener('keydown', function(e) {
         audio.play();
 
         alert("Secret Unlocked!");
-
+        // keyboard events for ocarina sounds
         document.addEventListener('keydown', function (e) {
             if (e.keyCode == 72) {
                 document.getElementById('h').play();
             }
+            document.addEventListener('keydown', function(e) {
+                if (e.keyCode == 38) {
+                    document.getElementById('up').play();
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.keyCode == 37) {
+                    document.getElementById('left').play();
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.keyCode == 39) {
+                    document.getElementById('right').play();
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.keyCode == 40) {
+                    document.getElementById('down').play();
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.keyCode == 65) {
+                    document.getElementById('a').play();
+                }
+            });
         });
+        // add keydown event listener
+        $(document).keyup(function (e) {
+            // get the value of the key code from the key map
+            var key2 = allowedKeys[e.keyCode];
+            // get the value of the required key from the Epona song code
+            var requiredKey2 = eponaSong[CodePosition];
+
+            // compare the key with the required key
+            if (key2 == requiredKey2) {
+
+                // move to the next key in the konami code sequence
+                CodePosition++;
+
+                // if the last key is reached, activate cheats
+                if (CodePosition == eponaSong.length) {
+                    // var playEponaSong = new Audio("sounds/Epona's_Song.mp3");
+                    // playEponaSong.play();
+                    alert("Epona's Song");
+                    var audio = new Audio('sounds/zelda-secret.mp3');
+                    audio.play();
+                    CodePosition = 0;
+                }
+            } else {
+                CodePosition = 0;
+            }
+        });
+
     }
 
 
