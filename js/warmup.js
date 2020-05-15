@@ -48,6 +48,47 @@ function numberOfWords(string){
    }
 }
 
-console.log(numberOfWords('This is 4 words'));
-console.log(numberOfWords(99));
-console.log(numberOfWords('this should be 5' + 9 + ' words'));
+// console.log(numberOfWords('This is 4 words'));
+// console.log(numberOfWords(99));
+// console.log(numberOfWords('this should be 5' + 9 + ' words'));
+
+const shoppingCart = {
+    "tax": .08,
+    "items": [
+        {
+            "title": "orange juice",
+            "price": 3.99,
+            "quantity": 1
+        },
+        {
+            "title": "rice",
+            "price": 1.99,
+            "quantity": 3
+        },
+        {
+            "title": "beans",
+            "price": 0.99,
+            "quantity": 3
+        },
+        {
+            "title": "chili sauce",
+            "price": 2.99,
+            "quantity": 1
+        },
+        {
+            "title": "chocolate",
+            "price": 0.75,
+            "quantity": 9
+        }
+    ]
+};
+
+function totalNumberOfItems(input){
+    var sum = 0;
+    for(var i = 0; i < input.length; i += 1){
+        sum += i.items.quantity
+    }
+    return sum;
+}
+
+console.log(totalNumberOfItems(shoppingCart));
