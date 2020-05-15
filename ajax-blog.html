@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ajax-store.css">
 </head>
 <body>
+<header class="display-4 text-center">Blog City!</header>
 
-<div id="posts"></div>
+<div id="posts" class="jumbotron"></div>
+<button id="refresh">Refresh</button>
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    (function() {
+        "use strict";
 
+        function refresh() {
+            $(document).ready(function () {
+                $.get("data/blog.json", function (data) {
+                    var bData = '';
+                    $.each(data, function (index, value) {
+                        bData += '<h1 class="display-4">'+value.title+'</h1>';
+                        bData += '<p>' + value.categories + '</p>';
+                        bData += '<p>' + value.date + '</p>';
+                        bData += '<hr class="my-4"></hr>';
+                        bData += '<p class="lead">' + value.content + '</p>';
+                    });
+                    $('#posts').append(bData);
+                    console.log(bData)
+                });
+            });
+        }
+        refresh();
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+        $('#refresh').click(function () {
+            $('#posts').html('');
+            refresh();
+            // $('#insertProducts').load('data/inventory.json');
+        })
+
+    })();
+</script>
 </body>
 </html>
