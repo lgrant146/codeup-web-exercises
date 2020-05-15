@@ -2,23 +2,25 @@
 <html>
 <head>
     <title>Online Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ajax-store.css">
 </head>
 <body>
 
-<h1>My Tool Store</h1>
+<h1 class="display-1 text-center">My Tool Store</h1>
 
-<table id="products">
-    <thead>
+<table id="products" class="table table-striped table-bordered">
+    <thead class="thead-dark">
         <tr>
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th>
+            <th scope="col">Title</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Categories</th>
         </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
-
+<button id="refresh" class="btn btn-lg btn-outline-secondary">Refresh</button>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script>
@@ -45,6 +47,9 @@
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
+    $('#refresh').click(function () {
+        location.reload();
+    })
 })();
 
 // function renderCoffee(coffee) {

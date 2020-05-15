@@ -30,5 +30,12 @@
             "tool"
         ],
         "price": 10
-    }
+    }, {
+    "title": "Wabbajack",
+    "quantity": "infinity",
+    "categories": [
+        "staff", "Daedric artifact"
+    ],
+    "price": "Madness"
+}
 ]
