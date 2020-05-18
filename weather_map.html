@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/keys.js"></script>
+
+<script>
+    var weatherUrl ='https://api.openweathermap.org/data/2.5/onecall';
+    var weatherOptions = {
+        lat: 29.4242,
+        lon: -98.4936,
+        appid: OPEN_WEATHER_APPID,
+        exclude: 'minutely, current, hourly',
+        units: 'imperial'
+
+    };
+
+    $.get(weatherUrl, weatherOptions).done(function(data){
+        console.log(data);
+        console.log(data.daily[1].pressure);
+    });
+
+</script>
+</body>
+</html>

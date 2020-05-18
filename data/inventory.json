@@ -44,5 +44,12 @@
         "tool"
     ],
     "price": 2
+},{
+    "title": "spork",
+    "quantity": 30,
+    "categories": [
+        "why does this exist?"
+    ],
+    "price": "just take it"
 }
 ]
