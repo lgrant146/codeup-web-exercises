@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 <body>
-<script src="js/jquery-2.2.4.js"></script>
-<script src="js/keys.js"></script>
 
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script src="js/keys.js"></script>
+<script src="js/jquery-2.2.4.js"></script>
 <script>
+    'use strict';
+    mapboxgl.accessToken = mapboxKey;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9'
+    });
+
+
     var weatherUrl ='https://api.openweathermap.org/data/2.5/onecall';
     var weatherOptions = {
         lat: 29.4242,
@@ -24,6 +36,9 @@
         console.log(data.daily[1].pressure);
     });
 
+    $.get(weatherUrl, weatherOptions).done(function(data){
+        console.log()
+    });
 </script>
 </body>
 </html>
