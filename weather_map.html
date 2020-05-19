@@ -4,14 +4,96 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 </head>
 <body>
 
-<div id='map' style='width: 400px; height: 300px;'></div>
+<!--navbar-->
+<nav class="navbar bg-primary">Weather App</nav>
+<form class="form-inline mt-2">
+    <div class="form-group mb-2 ml-2">
+        <label for="place" class="sr-only">Place</label>
+        <input type="text" readonly class="form-control-plaintext" id="place" value="place">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="input-place" class="sr-only">Submit</label>
+        <input type="text" class="form-control" id="input-place">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+</form>
+<!--cards with weather info-->
+<div class="row justify-content-center">
+    <div class="col-sm-2">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h6 class="card-title">date</h6>
+                <hr>
+                <h6 class="card-text">Description:</h6>
+                <h6 class="card-text">Humidity:</h6>
+                <h6 class="card-text">Wind:</h6>
+                <h6 class="card-text">Pressure:</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h6 class="card-title">date</h6>
+                <hr>
+                <h6 class="card-text">Description:</h6>
+                <h6 class="card-text">Humidity:</h6>
+                <h6 class="card-text">Wind:</h6>
+                <h6 class="card-text">Pressure:</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h6 class="card-title">date</h6>
+                <hr>
+                <h6 class="card-text">Description:</h6>
+                <h6 class="card-text">Humidity:</h6>
+                <h6 class="card-text">Wind:</h6>
+                <h6 class="card-text">Pressure:</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h6 class="card-title">date</h6>
+                <hr>
+                <h6 class="card-text">Description:</h6>
+                <h6 class="card-text">Humidity:</h6>
+                <h6 class="card-text">Wind:</h6>
+                <h6 class="card-text">Pressure:</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h6 class="card-title">date</h6>
+                <hr>
+                <h6 class="card-text">Description:</h6>
+                <h6 class="card-text">Humidity:</h6>
+                <h6 class="card-text">Wind:</h6>
+                <h6 class="card-text">Pressure:</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--map-->
+<div id='map' class="mt-2" style='width: 100%; height: 300px;'></div>
+<!--jquery and keys-->
 <script src="js/keys.js"></script>
 <script src="js/jquery-2.2.4.js"></script>
+<!--mapbox and weather js-->
 <script>
     'use strict';
     mapboxgl.accessToken = mapboxKey;
@@ -21,7 +103,7 @@
     });
 
 
-    var weatherUrl ='https://api.openweathermap.org/data/2.5/onecall';
+    var weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall';
     var weatherOptions = {
         lat: 29.4242,
         lon: -98.4936,
@@ -31,12 +113,12 @@
 
     };
 
-    $.get(weatherUrl, weatherOptions).done(function(data){
+    $.get(weatherUrl, weatherOptions).done(function (data) {
         console.log(data);
         console.log(data.daily[1].pressure);
     });
 
-    $.get(weatherUrl, weatherOptions).done(function(data){
+    $.get(weatherUrl, weatherOptions).done(function (data) {
         console.log()
     });
 </script>
