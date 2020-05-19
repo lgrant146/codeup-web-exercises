@@ -13,17 +13,17 @@
 
 <!--navbar-->
 <nav class="navbar bg-primary">Weather App</nav>
-<form class="form-inline mt-2">
-    <div class="form-group mb-2 ml-2">
+<div>
+    <div class="mb-2 ml-2">
         <label for="place" class="sr-only">Place</label>
         <input type="text" readonly class="form-control-plaintext" id="place" value="place">
     </div>
-    <div class="form-group mx-sm-3 mb-2">
+    <div class="mx-sm-3 mb-2">
         <label for="input-place" class="sr-only">Submit</label>
         <input type="text" class="form-control" id="input-place">
     </div>
-    <button type="submit" class="btn btn-primary mb-2">Submit</button>
-</form>
+    <button type="submit" id="submit" class="btn btn-primary mb-2">Submit</button>
+</div>
 <!--cards with weather info-->
 <div class="row justify-content-center">
     <div class="col-sm-2">
@@ -96,6 +96,7 @@
 <!--mapbox and weather js-->
 <script>
     'use strict';
+    // map config
     mapboxgl.accessToken = mapboxKey;
     var map = new mapboxgl.Map({
         container: 'map',
@@ -103,10 +104,39 @@
         center: [-97.7431, 30.2672],
         zoom: 9,
     });
+    // adding marker
     var marker = new mapboxgl.Marker()
         .setLngLat([-97.7431, 30.2672])
         .addTo(map)
         .setDraggable(true);
+
+    console.log(marker);
+    // geocode function
+    function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+                // to get all the data from the request, comment out the following three lines...
+            }).then(function(data) {
+                return data.features[0].center;
+            });
+    }
+    // getting the value of search input
+    var searchInput = $('#input-place').keyup(function() {
+        var value = $(this).val();
+    });
+    // geocoding search
+    $('#submit').click(function () {
+    geocode(searchInput.val(), mapboxKey).then(function(results) {
+          // do something with results
+        console.log(results);
+        map.setCenter(results);
+        marker.setLngLat(results);
+      });
+    });
+    // weather js
 
     var weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall';
     var weatherOptions = {
