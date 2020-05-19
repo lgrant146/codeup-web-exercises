@@ -12,7 +12,7 @@
 <body>
 
 <!--navbar-->
-<nav class="navbar bg-primary">Weather App</nav>
+<nav class="navbar bg-primary text-light">Weather App<span id="current-city">city name</span></nav>
 <div>
     <div class="mb-2 ml-2">
         <label for="place" class="sr-only">Place</label>
@@ -109,9 +109,13 @@
         .setLngLat([-97.7431, 30.2672])
         .addTo(map)
         .setDraggable(true);
-
-    console.log(marker);
-    // geocode function
+    // getting lng and lat of marker
+    function onDragEnd () {
+        var lngLat = marker.getLngLat();
+        console.log(lngLat);
+    }
+    marker.on('dragend', onDragEnd);
+    // geocode and reverse geocode function
     function geocode(search, token) {
         var baseUrl = 'https://api.mapbox.com';
         var endPoint = '/geocoding/v5/mapbox.places/';
@@ -123,6 +127,28 @@
                 return data.features[0].center;
             });
     }
+    function reverseGeocode(coordinates, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+            })
+            // to get all the data from the request, comment out the following three lines...
+            .then(function(data) {
+                return data.features[0].place_name;
+            });
+    }
+    // $('#current-city').on('dragend', function () {
+    //     reverseGeocode(marker.getLngLat(), mapboxKey).then(function(results) {
+    //         // logs the address for The Alamo
+    //         console.log(results);
+    //     });
+    // });
+    reverseGeocode(marker.getLngLat(), mapboxKey).then(function(results) {
+                // logs the address for The Alamo
+                console.log(results);
+            });
     // getting the value of search input
     var searchInput = $('#input-place').keyup(function() {
         var value = $(this).val();
