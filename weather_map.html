@@ -180,7 +180,10 @@
         map.setCenter(results);
         marker.setLngLat(results);
         map.setZoom(9);
-
+        reverseGeocode(marker.getLngLat(), mapboxKey).then(function(results) {
+            $('#current-city').text(results);
+            console.log(results);
+        });
         $('#weather').html('');
         var weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall';
         var weatherOptions = {
