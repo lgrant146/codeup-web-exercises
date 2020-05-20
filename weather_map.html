@@ -13,6 +13,7 @@
 
 <!--navbar-->
 <nav class="navbar bg-primary text-light">Weather App<span id="current-city">city name</span></nav>
+
 <div>
     <div class="mb-2 ml-2">
         <label for="place" class="sr-only">Place</label>
@@ -25,68 +26,69 @@
     <button type="submit" id="submit" class="btn btn-primary mb-2">Submit</button>
 </div>
 <!--cards with weather info-->
-<div class="row justify-content-center">
-    <div class="col-sm-2">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h6 class="card-title">date</h6>
-                <hr>
-                <h6 class="card-text">Description:</h6>
-                <h6 class="card-text">Humidity:</h6>
-                <h6 class="card-text">Wind:</h6>
-                <h6 class="card-text">Pressure:</h6>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h6 class="card-title">date</h6>
-                <hr>
-                <h6 class="card-text">Description:</h6>
-                <h6 class="card-text">Humidity:</h6>
-                <h6 class="card-text">Wind:</h6>
-                <h6 class="card-text">Pressure:</h6>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h6 class="card-title">date</h6>
-                <hr>
-                <h6 class="card-text">Description:</h6>
-                <h6 class="card-text">Humidity:</h6>
-                <h6 class="card-text">Wind:</h6>
-                <h6 class="card-text">Pressure:</h6>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h6 class="card-title">date</h6>
-                <hr>
-                <h6 class="card-text">Description:</h6>
-                <h6 class="card-text">Humidity:</h6>
-                <h6 class="card-text">Wind:</h6>
-                <h6 class="card-text">Pressure:</h6>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h6 class="card-title">date</h6>
-                <hr>
-                <h6 class="card-text">Description:</h6>
-                <h6 class="card-text">Humidity:</h6>
-                <h6 class="card-text">Wind:</h6>
-                <h6 class="card-text">Pressure:</h6>
-            </div>
-        </div>
-    </div>
+<div class="row justify-content-center" id="weather">
+<!--    <div class="col-sm-2">-->
+<!--        <div class="card" style="width: 18rem;">-->
+<!--            <div class="card-body">-->
+<!--                <h6 class="card-title">date</h6>-->
+<!--                <hr>-->
+<!--                <h6 class="card-text">Description:</h6>-->
+<!--                <h6 class="card-text">Humidity:</h6>-->
+<!--                <h6 class="card-text">Wind:</h6>-->
+<!--                <h6 class="card-text">Pressure:</h6>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="col-sm-2">-->
+<!--        <div class="card" style="width: 18rem;">-->
+<!--            <div class="card-body">-->
+<!--                <h6 class="card-title">date</h6>-->
+<!--                <hr>-->
+<!--                <h6 class="card-text">Description:</h6>-->
+<!--                <h6 class="card-text">Humidity:</h6>-->
+<!--                <h6 class="card-text">Wind:</h6>-->
+<!--                <h6 class="card-text">Pressure:</h6>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="col-sm-2">-->
+<!--        <div class="card" style="width: 18rem;">-->
+<!--            <div class="card-body">-->
+<!--                <h6 class="card-title">date</h6>-->
+<!--                <hr>-->
+<!--                <h6 class="card-text">Description:</h6>-->
+<!--                <h6 class="card-text">Humidity:</h6>-->
+<!--                <h6 class="card-text">Wind:</h6>-->
+<!--                <h6 class="card-text">Pressure:</h6>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="col-sm-2">-->
+<!--        <div class="card" style="width: 18rem;">-->
+<!--            <div class="card-body">-->
+<!--                <h6 class="card-title">date</h6>-->
+<!--                <hr>-->
+<!--                <h6 class="card-text">Description:</h6>-->
+<!--                <h6 class="card-text">Humidity:</h6>-->
+<!--                <h6 class="card-text">Wind:</h6>-->
+<!--                <h6 class="card-text">Pressure:</h6>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="col-sm-2">-->
+<!--        <div class="card" style="width: 18rem;">-->
+<!--            <div class="card-body">-->
+<!--                <h6 class="card-title">date</h6>-->
+<!--                <hr>-->
+<!--                <h6 class="card-text">Description:</h6>-->
+<!--                <h6 class="card-text">Humidity:</h6>-->
+<!--                <h6 class="card-text">Wind:</h6>-->
+<!--                <h6 class="card-text">Pressure:</h6>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
+
 
 <!--map-->
 <div id='map' class="mt-2" style='width: 100%; height: 500px;'></div>
@@ -183,8 +185,40 @@
     };
 
     $.get(weatherUrl, weatherOptions).done(function (data) {
-        console.log(data);
-        console.log(data.daily[1].pressure);
+        var cData = '';
+        // console.log(data);
+        $.each(data.daily, function (index, value) {
+            // console.log(index, value, 'test');
+            var date = new Date(value.dt * 1000);
+            var description = value.weather[0].description;
+            var humidity = value.humidity;
+            var wind = value.wind_speed;
+            var pressure = value.pressure;
+            if (index === 5){
+                return false
+            }
+            cData += "<div class='col-sm-2'>";
+            cData += "<div class='card'>";
+            cData += "<div class='card-body'>";
+            cData += "<h6 class='card-title'>" + date + "</h6>";
+            cData += "<hr>";
+            cData += "<h6 class='card-text'>" + description + "</h6>";
+            cData += "<h6 class='card-text'>" + 'Humidity: ' + humidity + "</h6>";
+            cData += "<h6 class='card-text'>" + 'Wind: ' + wind + "</h6>";
+            cData += "<h6 class='card-text'>" + 'Pressue: ' + pressure + "</h6>";
+            cData += "</div>";
+            cData += "</div>";
+            cData += "</div>";
+            // console.log(cData)
+        });
+        $('#weather').append(cData);
+
+        // var date = new Date(data.daily[0].dt * 1000);
+        // console.log(date.toLocaleString());
+        // console.log(data.daily[0].weather[0].description);
+        // console.log(data.daily[0].humidity);
+        // console.log(data.daily[0].wind_speed);
+        // console.log(data.daily[0].pressure);
     });
 
     $.get(weatherUrl, weatherOptions).done(function (data) {
