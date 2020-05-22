@@ -35,3 +35,21 @@ const users = [
         yearsOfExperience: 9
     }
 ];
+
+let trilingual = users.filter(function(user){
+    return user.languages.length > 2
+});
+console.log(trilingual);
+
+let emails = users.map(function(user){
+   return user.email
+});
+console.log(emails);
+
+let TotalYearsOfExperience = users.reduce((total, user) => {
+        return total + user.yearsOfExperience;
+}, 0);
+
+let averageExperience = TotalYearsOfExperience/ users.length;
+console.log(TotalYearsOfExperience);
+console.log(averageExperience);
