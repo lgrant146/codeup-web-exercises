@@ -35,7 +35,7 @@ const users = [
         yearsOfExperience: 9
     }
 ];
-
+// let trilingual = users.filter((user) => user.languages.length > 2);
 let trilingual = users.filter(function(user){
     return user.languages.length > 2
 });
@@ -53,3 +53,33 @@ let TotalYearsOfExperience = users.reduce((total, user) => {
 let averageExperience = TotalYearsOfExperience/ users.length;
 console.log(TotalYearsOfExperience);
 console.log(averageExperience);
+
+let longestEmailObject = users.reduce(function (a, b){
+    return a.email.length > b.email.length ? a : b;
+});
+let longestEmail = longestEmailObject.email;
+console.log(longestEmail);
+
+let arrayOfUsers =  users.reduce(function (finalString, instructor, index){
+    if(index < users.length - 1) {
+        return   `${finalString}${instructor.name.substring(0,1).toUpperCase()}${instructor.name.substring(1, instructor.name.length).toLowerCase()}, `
+    } else {
+        return `${finalString}${instructor.name.substring(0,1).toUpperCase()}${instructor.name.substring(1, instructor.name.length).toLowerCase()} `, "Your instructors are: "
+    }
+
+    });
+
+
+
+console.log(arrayOfUsers);
+
+let uniqueLanguages = users.reduce((lList, user) => {
+    for (let language of user.languages) {
+        if (!lList.includes(language)) {
+            lList.push(language);
+        }
+    }
+    return lList;
+}, []);
+
+console.log(uniqueLanguages);
