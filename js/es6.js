@@ -40,8 +40,8 @@ const languages = ['html', 'css', 'javascript'];
 // TODO: rewrite the object literal using object property shorthand
 users.push({
    name,
-  email: email,
-  languages: languages
+   email,
+   languages
 });
 
 // TODO: replace `var` with `let` in the following variable declarations
@@ -61,14 +61,14 @@ users.forEach(user => names.push(user.name));
 // TODO: replace `var` with `let` in the following declaration
 let developers = [];
 console.log(developers);
-users.forEach(function(user) {
+users.forEach(function({name, email, languages}) {
   // TODO: rewrite the code below to use object destructuring assignment
   //       note that you can also use destructuring assignment in the function
   //       parameter definition
   // const name = user.name;
   // const email = user.email;
   // const languages = user.languages;
-  let {name, email, languages} = user;
+  // const {name, email, languages} = user;
 
   // TODO: rewrite the assignment below to use template strings
   // developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
@@ -79,7 +79,11 @@ console.log(developers);
 let list = '<ul>';
 
 // TODO: rewrite the following loop to use a for..of loop
-developers.forEach(developer => `${list}<li>${developer}</li>`)
+for (const developer of developers ){
+   // list += '<li>' + developer + '</li>';
+   list += `<li>${developer}<\li>`;
+}
+
 
 // developers.forEach(function (developer) {
 //
@@ -87,4 +91,6 @@ developers.forEach(developer => `${list}<li>${developer}</li>`)
 //   list += '<li>' + developer + '</li>';
 // });
 list += '</ul>';
- console.log(list);
+//  let holdThis = document.getElementsByName('body')[0].innerHTML;
+// document.getElementsByName('body')[0].innerHTML = holdThis + list;
+
