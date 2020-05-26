@@ -10,3 +10,23 @@ gitHubPromise.then(response => response.json())
 
 
 lastCommit(`lgrant146`);
+
+function waitPromise(milliseconds){
+    let seconds = milliseconds / 1000;
+   return new Promise((resolve, reject) => {
+       setTimeout(() => {
+           if (milliseconds <= 1000){
+               resolve(`You'll see this after ${seconds} second`)
+           } else if(milliseconds > 1000) {
+               resolve(`You'll see this after ${seconds} seconds`)
+           } else {
+               reject(`what even is that you entered?`)
+           }
+       }, milliseconds)
+   })
+}
+waitPromise(1000).then();
+const wait = waitPromise();
+console.log(wait);
+wait.then(message => console.log('Promise resolved!', message));
+wait.catch(message => console.log('Promise rejected!', message));
